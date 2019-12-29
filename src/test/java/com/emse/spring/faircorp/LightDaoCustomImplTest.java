@@ -2,6 +2,7 @@ package com.emse.spring.faircorp;
 
 import com.emse.spring.faircorp.model.LightDao;
 import com.emse.spring.faircorp.model.Status;
+import org.assertj.core.api.Assert;
 import org.assertj.core.api.Assertions;
 import org.assertj.core.groups.Tuple;
 import org.junit.jupiter.api.Test;
@@ -23,5 +24,11 @@ class LightDaoCustomImplTest {
                 .hasSize(1)
                 .extracting("id", "status")
                 .containsExactly(Tuple.tuple(-1L, Status.ON));
+    }
+
+    @Test
+    public void shouldFindById(){
+        Assertions.assertThat(lightDao.findOnRoomId(-10L))
+                .hasSize(2);
     }
 }
