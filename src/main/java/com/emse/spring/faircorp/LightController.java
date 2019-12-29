@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@CrossOrigin
 @RestController  // 1. RestController is a Spring stereotype to mark a class as a rest service
 @RequestMapping("/api") // 2. @RequestMapping is used to define the URL prefix used to manage a resource (in our example we manage lights)
 @Transactional // 3. In this example we will use a DAO and this DAO is injected via @Autowired
