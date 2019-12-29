@@ -4,17 +4,18 @@ import javax.persistence.Entity;
 import javax.persistence.*;
 import java.util.Set;
 
-// @Entity
+@Entity
 public class Light {
 
     @Id
     @GeneratedValue
     @Column (nullable= false)
     private Long id;
-    @ManyToMany(mappedBy="Light")
-    private Set<Room> room;
+    @ManyToOne
+    private Room room;
 
     private Integer level;
+
 
     @Column(nullable=false)
     @Enumerated(EnumType.STRING)

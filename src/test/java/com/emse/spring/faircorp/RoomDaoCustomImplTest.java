@@ -1,4 +1,4 @@
 package com.emse.spring.faircorp;
 
-public class SettingService {
+public class RoomDaoCustomImplTest {
 }

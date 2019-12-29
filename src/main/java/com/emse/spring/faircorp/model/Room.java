@@ -10,7 +10,7 @@ public class Room {
     @GeneratedValue
     @Column (nullable= false)
     private Long id;
-    @ManyToMany
+    @OneToMany
     private Set<Light> light;
 
     @Column (nullable= false)
@@ -22,8 +22,7 @@ public class Room {
          this.name =name;
          this.floor=floor;
      }
-
-
+    public Room(){}
 
 
 }

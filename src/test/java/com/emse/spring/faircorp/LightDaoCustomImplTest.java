@@ -1,3 +1,5 @@
+package com.emse.spring.faircorp;
+
 import com.emse.spring.faircorp.model.LightDao;
 import com.emse.spring.faircorp.model.Status;
 import org.assertj.core.api.Assertions;
@@ -8,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-@ExtendWith(value = SpringExtension.class)
+@ExtendWith(SpringExtension.class)
 @DataJpaTest
 class LightDaoCustomImplTest {
 
