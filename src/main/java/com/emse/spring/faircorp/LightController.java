@@ -84,8 +84,8 @@ public class LightController {
         return new LightDto(light);
     }*/
 
-    @DeleteMapping(path = "/{id}")
+    /*@DeleteMapping(path = "/{id}")
     public void delete(@PathVariable Long id) {
         lightDao.deleteById(id);
-    }
+    }*/
 }
