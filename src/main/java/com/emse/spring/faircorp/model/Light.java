@@ -16,9 +16,7 @@ public class Light {
     private Long light_id;
 
     // 4:status is also not nullable, and this field is an enumeration. You have to add this information
-    @Column(nullable=false)
-    @Enumerated(EnumType.STRING)
-    private Status status;
+
 
     // 3:This field must be not nullable
     @Column(nullable = false)
@@ -30,7 +28,9 @@ public class Light {
     @Column(nullable = false)
     private double b;
 
-
+    @Column(nullable=false)
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
 
     public Light() {
