@@ -12,22 +12,36 @@ body {
 
 /* Header */
 
-header /*A CHANGER */
-{
-    background: url('../images/separateur.png') repeat-x bottom;/*A CHANGER */
-    align-items: flex-end;/*A CHANGER */
+
+/* For the menu */ 
+ul {
+  list-style-type: none;
+
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
 }
 
-#titre_principal/*A CHANGER */
-{
-    display: flex;
-    font-family: Market;
-    flex-direction: column;
+li {
+  float: left;
+  
 }
 
+li a {
+  display: block;
+  color: white;
+  font-family: Helvetica, serif;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
 
-
-
+li a:hover {
+  background-color: #111;
+}
+/*end of menue */
 header h1 {
     font-family: 'Harabara', serif; 
     font-size: 35px;
@@ -39,26 +53,33 @@ header h2
     font-family: Helvetica, serif;
     font-size: 18px;
 	font-weight:normal;
-    margin-left: 10%
+    margin-left: 10%;
+	margin-right: 10%;
 }
 
-#conteneur{
-width: #px;
-height: #px;
-overflow: scroll;
-}
+
 
 body h2 {
 	 font-family: Helvetica, serif;
     font-size: 18px;
 	font-weight:normal;
     margin-left: 10%;
+	margin-right: 10%;
 }
+
+/*It is where all the last modifications has been made */
 .Conteneur {
     margin-left: 12%;
 	width: 500px;
 }
-	
+
+body p {
+	 font-family: Helvetica, serif;
+    font-size: 16px;
+	font-weight:normal;
+    margin-left: 10%;
+	margin-right: 10%;
+}
 /*The buttons in the table */ 
 .button1 { /*Is the button to set the light off*/
   display: inline-block;
@@ -199,68 +220,4 @@ th {
 }
 
 
-
-/* Corps */
-
-section
-{
-    display: flex;
-    margin-bottom: 20px;
-}
-
-article, aside
-{
-    font-family: 'Harabara';
-    text-align: justify;
-}
-
-article
-{
-    margin-right: 20px;
-    flex: 3;
-}
-
-.ico_categorie
-{
-    vertical-align: middle;
-    margin-right: 8px;
-}
-
-article p {
-    font-family: 'Harabara';
-    font-size: 0.8em;
-}
-
-aside
-{
-    flex: 1.2;
-    position: relative;
-    background-color: #706b64;
-    box-shadow: 0px 2px 5px #1c1a19;
-    border-radius: 5px;
-    padding: 10px;
-    color: white;
-    font-size: 0.9em;
-}
-
-
-
-/* Footer */ /*En foutre un mais le faire personnalisé */ 
-
-footer
-{
-    display: flex;
-    background:  url('../images/ico_top.png') no-repeat top center, url('../images/separateur.png') repeat-x top, url('../images/ombre.png') repeat-x top;
-    padding-top: 25px;
-}
-
-footer p, footer ul
-{
-    font-size: 0.8em;
-}
-
-footer h1
-{
-    font-size: 1.1em;
-}
 

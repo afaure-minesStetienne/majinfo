@@ -1,10 +1,9 @@
 //var obj = await (await fetch(url)).json();
-//var obj = [{ "Room_id": "1", "light_id": "1", "status": "ON", "level": "87.", "a": "47", "b": "83" }, { "Room_id": "1", "light_id": "2", "status": "OFF", "level": "90", "a": "4.5", "b": "1.5" }, { "Room_id": "2", "light_id": "1", "status": "ON" , "level": "90", "a": "-35", "b": "70"}];
+var obj = [{ "Room_id": "1", "light_id": "1", "status": "ON", "level": "87.", "a": "47", "b": "83" }, { "Room_id": "1", "light_id": "2", "status": "OFF", "level": "90", "a": "4.5", "b": "1.5" }, { "Room_id": "2", "light_id": "1", "status": "ON" , "level": "90", "a": "-35", "b": "70"}];
 
-  let response = await fetch('https://localhost8080/api/lights');
-  let obj = await response.json();
-  
-  
+ //let response = await fetch('localhost:8080/api/lights');
+ //let obj = await response.json();
+
 var col = [];
 var Hist = document.createElement("Hist");
 Hist = ' ';
@@ -15,7 +14,7 @@ Hist = ' ';
                 }
             }
         }
-	function rgb2lab(rgb){
+function rgb2lab(rgb){
 
          var r = rgb[0] / 255,
             g = rgb[1] / 255,
@@ -36,7 +35,7 @@ Hist = ' ';
 
         return [(116 * y) - 16, 500 * (x - y), 200 * (y - z)]
 }
-	function lab2rgb(lab){
+function lab2rgb(lab){
   var y = (lab[0] + 16) / 116,
       x = lab[1] / 500 + y,
       z = y - lab[2] / 200,
@@ -58,50 +57,22 @@ Hist = ' ';
           Math.max(0, Math.min(1, g)) * 255,
           Math.max(0, Math.min(1, b)) * 255]
 }
-/* function SendUpdate(){
-	var XHR = new XMLHttpRequest();
-	XHR.addEventListener('load', function(event) {
-    alert('Données envoyées.');
-	});
-	XHR.addEventListener('error', function(event) {
-    alert('Oups! Quelque chose s\'est mal passé.');
-  });
-  XHR.open('POST', '');
-
-  // Ajoutez l'en-tête HTTP requise pour requêtes POST de données de formulaire 
-  //XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-  // Finalement, envoyez les données.
-  XHR.send(obj);
-
-} */
  function Eteindre(i){
 	obj[i][col[2]]= 'OFF';
 	CreateTableFromJSON();
 	var HistContainer = document.getElementById("showHist");
-	Hist='Vous avez éteint la lampe '+obj[i][col[1]]+ ' située dans la pièce ' +obj[i][col[0]] + '</br>' + Hist  ;
+	Hist='You turned off the light  '+obj[i][col[1]]+ ' in the room ' +obj[i][col[0]] + '</br>' + Hist  ;
 	HistContainer.innerHTML = Hist;
-	var XHR = new XMLHttpRequest();
-	XHR.addEventListener('load', function(event) {
-    alert('Données envoyées.');
-	});
-	XHR.addEventListener('error', function(event) {
-    alert('Oups! Quelque chose s\'est mal passé.');
-  });
-  var id = obj[i][1];
-  XHR.open('POST', 'localhost:8080/api/lights/'+id);
-  XRH.send('switch');
+	
 
-
-	//SendUpdate();
 }
 function Allumer(i){
 	obj[i][col[2]]= 'ON';
 	CreateTableFromJSON();
 		var HistContainer = document.getElementById("showHist");
-	Hist='Vous avez allumé la lampe '+obj[i][col[1]]+ ' située dans la pièce ' +obj[i][col[0]] + '</br>' + Hist  ;
+	Hist='You turned on the light  '+obj[i][col[1]]+ ' in the room ' +obj[i][col[0]] + '</br>' + Hist  ;
 	HistContainer.innerHTML = Hist;
-		var XHR = new XMLHttpRequest();
+	/*	var XHR = new XMLHttpRequest();
 	XHR.addEventListener('load', function(event) {
     alert('Données envoyées.');
 	});
@@ -109,9 +80,9 @@ function Allumer(i){
     alert('Oups! Quelque chose s\'est mal passé.');
   });
   var id = obj[i][1];
-  XHR.open('POST', 'localhost:8080/api/lights/'+id);
-  XRH.send('switch');
-
+  XHR.open('POST', 'localhost:8080/api/lights/'+id+'switch');
+  XRH.send('ON');
+*/
 } 
 function ColorUpdate(i){
 	var value=document.getElementById('colorWell'+i).value;
@@ -131,11 +102,11 @@ function ColorUpdate(i){
 	obj[i][col[5]]=LAB[2];
 	CreateTableFromJSON();
 		var HistContainer = document.getElementById("showHist");
-	Hist='Vous avez changé la couleur de la lampe '+obj[i][col[1]]+ ' située dans la pièce ' +obj[i][col[0]] + '</br>' + Hist  ;
+	Hist='You changed the color of the lamp '+obj[i][col[1]]+ ' in the room ' +obj[i][col[0]] + '</br>' + Hist  ;
 	HistContainer.innerHTML = Hist;
-	//SendUpdate();
+	//SendUpdate;
 }
-	function CreateTableFromJSON() {
+function CreateTableFromJSON() {
         
 
         // EXTRACT VALUE FOR HTML HEADER.
@@ -162,7 +133,7 @@ function ColorUpdate(i){
             th.innerHTML = "Action";
             tr.appendChild(th);
 		var th = document.createElement("th");      // TABLE HEADER.
-            th.innerHTML = "Couleur";
+            th.innerHTML = "Color";
             tr.appendChild(th);
        
 
@@ -171,11 +142,12 @@ function ColorUpdate(i){
 
             tr = table.insertRow(-1);
 			// Add the  first values of the JSON we only put the Room_id and the light id
-            for (var j = 0; j < 3; j++) {
+            for (var j = 0; j < 2; j++) {
                 var tabCell = tr.insertCell(-1);
                 tabCell.innerHTML = obj[i][col[j]];
             }
-			
+			var tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = obj[i][col[2]];
             var tabCell = tr.insertCell(-1);
             if (obj[i][col[2]] == 'ON') {
                 tabCell.innerHTML = '<button class="button1" style="vertical-align:middle" onclick="Eteindre('+i+')" ><span>Eteindre</span></button>'; //
@@ -219,5 +191,5 @@ function ColorUpdate(i){
         var divContainer = document.getElementById("showData");
         divContainer.innerHTML = "";
         divContainer.appendChild(table);
-}
-	
+		}
+		
