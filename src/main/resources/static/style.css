@@ -1,0 +1,266 @@
+
+/* Eléments principaux de la page */
+
+body {
+    
+    font-family: Arial, Helvetica, sans-serif; /*A CHANGER */
+    color: #181818;
+}
+
+
+
+
+/* Header */
+
+header /*A CHANGER */
+{
+    background: url('../images/separateur.png') repeat-x bottom;/*A CHANGER */
+    align-items: flex-end;/*A CHANGER */
+}
+
+#titre_principal/*A CHANGER */
+{
+    display: flex;
+    font-family: Market;
+    flex-direction: column;
+}
+
+
+
+
+header h1 {
+    font-family: 'Harabara', serif; 
+    font-size: 35px;
+    margin-left: 10%;
+}
+
+header h2 
+{
+    font-family: Helvetica, serif;
+    font-size: 18px;
+	font-weight:normal;
+    margin-left: 10%
+}
+
+#conteneur{
+width: #px;
+height: #px;
+overflow: scroll;
+}
+
+body h2 {
+	 font-family: Helvetica, serif;
+    font-size: 18px;
+	font-weight:normal;
+    margin-left: 10%;
+}
+.Conteneur {
+    margin-left: 12%;
+	width: 500px;
+}
+	
+/*The buttons in the table */ 
+.button1 { /*Is the button to set the light off*/
+  display: inline-block;
+  border-radius: 2px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 22px;
+  padding: 12px;
+  width: 120px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 2px;
+}
+
+.button1 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button1 span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button1:hover span {
+  padding-right: 25px;
+}
+
+.button1:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+.button2 { /*Is the button to set the light on*/
+  display: inline-block;
+  border-radius: 2px;
+  background-color: #89ee4d;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 22px;
+  padding: 12px;
+  width: 120px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 2px;
+}
+
+.button2 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button2 span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button2:hover span {
+  padding-right: 25px;
+}
+
+.button2:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.ColorView {
+  display: inline-block;
+  border: none;
+  background-color: none;
+  vertical-align:middle;
+  text-align: center;
+  width: 80px;
+  height:60px;
+  transition: all 0.5s;
+  cursor: pointer;
+	
+}
+.button3 {
+
+  padding: 15px 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #4742b0;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 9px #999;
+  vertical-align:middle;
+}
+.button3:hover {
+	 
+  background-color: #403aa5;
+
+}  
+.button3:active {
+  background-color: #272290;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+	
+
+/* Gestion graphique du tableau */
+table {
+	border-collapse: collapse;
+	width:70%; 
+    margin-left:15%; 
+    margin-right:15%;
+	font-size:20px;
+}
+
+th, td {
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+th {
+  background-color: #AFAFAF;
+  color: white;
+  text-align: center;
+}
+
+
+
+/* Corps */
+
+section
+{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+article, aside
+{
+    font-family: 'Harabara';
+    text-align: justify;
+}
+
+article
+{
+    margin-right: 20px;
+    flex: 3;
+}
+
+.ico_categorie
+{
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+article p {
+    font-family: 'Harabara';
+    font-size: 0.8em;
+}
+
+aside
+{
+    flex: 1.2;
+    position: relative;
+    background-color: #706b64;
+    box-shadow: 0px 2px 5px #1c1a19;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    font-size: 0.9em;
+}
+
+
+
+/* Footer */ /*En foutre un mais le faire personnalisé */ 
+
+footer
+{
+    display: flex;
+    background:  url('../images/ico_top.png') no-repeat top center, url('../images/separateur.png') repeat-x top, url('../images/ombre.png') repeat-x top;
+    padding-top: 25px;
+}
+
+footer p, footer ul
+{
+    font-size: 0.8em;
+}
+
+footer h1
+{
+    font-size: 1.1em;
+}
+

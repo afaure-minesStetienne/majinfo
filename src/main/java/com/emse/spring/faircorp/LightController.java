@@ -48,14 +48,14 @@ public class LightController {
     }
 
     //
-    @PutMapping(path = "lights/{id}/switch")
+    @PostMapping(path = "lights/{id}/switch")
     public LightDto switchStatus(@PathVariable Long id) {
         Light light = lightDao.findById(id).orElseThrow(IllegalArgumentException::new);
         light.setStatus(light.getStatus() == Status.ON ? Status.OFF: Status.ON);
         return new LightDto(light);
     }
 
-    @PutMapping(path = "lights/{id}/change")
+    @PostMapping(path = "lights/{id}/change")
     public LightDto changeValues(@PathVariable Long id, @RequestBody LightDto dto){
         Light light = lightDao.findById(id).orElseThrow(IllegalArgumentException::new);
         light.setA(dto.getA());
